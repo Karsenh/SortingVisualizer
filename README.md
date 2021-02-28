@@ -1,6 +1,6 @@
 # Getting Started with _REACT Sorting Visualizer_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Currently only Merge Sort is working because I got bored with tedious animations and you get the idea. Will finish remaining algorithms and corresponding animations at some point.
 
 ## Available Scripts
 
