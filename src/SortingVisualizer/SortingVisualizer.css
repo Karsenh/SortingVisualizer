@@ -9,3 +9,7 @@
     display: inline-block;
     margin: 0 1px;
 }
+
+button {
+    margin: 5px 10px;
+}
