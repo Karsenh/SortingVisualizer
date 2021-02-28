@@ -1,34 +1,3 @@
-// export const mergeSort = (array, animations = []) => {
-// // If array is only one element
-//     if (array.length ===1 ) return array;
-    
-// // If array is more than one element...
-//     // get the middle point of the array (rounded down)
-//     const middleIdx = Math.floor(array.length / 2);
-
-//     // Recursively call mergeSort on the first half, passing in the array sliced to the middle index
-//     const firstHalf = mergeSort(array.slice(0, middleIdx));
-
-//     // Recursively call mergeSort on the second half, passing in the array sliced from the middle to the end
-//     const secondHalf = mergeSort(array.slice(middleIdx));
-
-//     const sortedArray = [];
-//     let i = 0,
-//         j = 0;
-
-//     while (i < firstHalf.length && j < secondHalf.length) {
-//         if (firstHalf[i] < secondHalf[j]) {
-//             sortedArray.push(firstHalf[i++]);
-//         } else {
-//             sortedArray.push(secondHalf[j++]);
-//         }
-//     }
-//     while (i < firstHalf.length) sortedArray.push(firstHalf[i++]);
-//     while (j < firstHalf.length) sortedArray.push(secondHalf[j++]);
-//     return sortedArray;
-
-// };
-
 export function getMergeSortAnimations(array) {
     const animations = [];
     if (array.length <= 1) return array;

@@ -38,12 +38,6 @@ function SortingVisualizer() {
     }
 
     function merge() {
-
-        // console.log(array);
-
-        // const sortedArray = getMergeSortAnimations(array);
-
-        // console.log(sortedArray);
         const animations = getMergeSortAnimations(array);
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
