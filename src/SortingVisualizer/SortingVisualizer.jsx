@@ -1,42 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import './SortingVisualizer.css';
 
-export default class SortingVisualizer extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            array: [],
-        };
-    }
+function SortingVisualizer() {
 
-    componentDidMount() {
-        this.resetArray();
-    }
-
-    resetArray() {
-        const array = [];
-        for (let i = 0; i < 100; i++) {
-            array.push(randomIntFromInterval(5,1000));
+    const [array, setArray] = useState(() => {
+        const freshArray = [];
+        for (let i = 0; i < 310; i++) {
+            freshArray.push(randomIntFromInterval(5,730));
         }
-        this.setState({array});
+        return freshArray;
+    });
+
+    // componentDidMount() {
+    //     this.resetArray();
+    // }
+
+    function resetArray() {
+
+        const newArray = [];
+
+        for (let i = 0; i < 310; i++) {
+            newArray.push(randomIntFromInterval(5,730));
+        }
+
+        setArray(newArray);
     }
 
-    render() {
-        const {array} = this.state;
-
-        return (
-            <>
+    return (
+        <div className="array-container">
             {array.map((value, idx) => (
-                <div className="array-bar" key={ idx }>
-                    {value}
+                <div 
+                    className="array-bar" 
+                     key={ idx }
+                    style={{height: `${value}px`}}>
                 </div>
             ))}
-            </>
-        );
-    }
+            <button onClick={ resetArray }>Generate New Array</button>
+        </div>
+    );
+
 }
 
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+export default SortingVisualizer;
