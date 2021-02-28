@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import {getMergeSortAnimations, mergeSort} from '../SortingAlgorithms/MergeSort';
+import { Segment, Grid, Label, Input } from "semantic-ui-react";
+import { Slider } from "react-semantic-ui-range";
 import './SortingVisualizer.css';
 
 // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 1;
 
 // Change this value for the number of bars (value) in the array.
 const NUMBER_OF_ARRAY_BARS = 310;
 
 // This is the main color of the array bars.
-const PRIMARY_COLOR = 'turquoise';
+const PRIMARY_COLOR = 'Chartreuse';
 
 // This is the color of array bars that are being compared throughout the animations.
-const SECONDARY_COLOR = 'red';
+const SECONDARY_COLOR = 'crimson';
 
 
 function SortingVisualizer() {
+
+    const [value1, setState] = useState(1);
+    const ANIMATION_SPEED_MS = value1;
+
 
     const [array, setArray] = useState(() => {
         const freshArray = [];
@@ -24,6 +29,7 @@ function SortingVisualizer() {
         }
         return freshArray;
     });
+
 
 
     function resetArray() {
@@ -74,6 +80,10 @@ function SortingVisualizer() {
 
     }
 
+    function updateValue() {
+
+    }
+
     
 
     return (
@@ -88,10 +98,33 @@ function SortingVisualizer() {
             <div>
                 <button onClick={ resetArray }>Generate New Array</button>
                 <button onClick={ merge }>Merge Sort</button>
-                <button onClick={ quickSort }>Quick Sort</button>
-                <button onClick={ heapSort }>Heap Sort</button>
-                <button onClick={ bubbleSort }>Bubble Sort</button>
+                <button onClick={ quickSort } disabled>Quick Sort</button>
+                <button onClick={ heapSort } disabled>Heap Sort</button>
+                <button onClick={ bubbleSort } disabled>Bubble Sort</button>
             </div>
+
+            <Segment>
+            <h1>Sort Speed</h1>
+            <p>
+              <Slider
+                color="red"
+                inverted={false}
+                settings={{
+                  start: {value1},
+                  min: 1,
+                  max: 100,
+                  step: 1,
+                  onChange: value => {
+                    setState(
+                      value
+                    );
+                  }
+                }}
+              />
+            </p>
+            <Label color="red">{value1} ms</Label>
+          </Segment>
+
         </div>
     );
 
