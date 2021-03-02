@@ -1,5 +1,7 @@
 # Getting Started with _REACT Sorting Visualizer_
 
+Based on Clément Mihailescu's visualizer - Refactored using hooks (useState)
+
 Currently only Merge Sort is working because I got bored with tedious animations and you get the idea. Will finish remaining algorithms and corresponding animations at some point.
 
 ## Available Scripts
